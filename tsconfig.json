@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "strict": true,
+    "sourceMap": true,
+    "jsx": "react",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": ["dom", "esnext"],
+    "target": "es5",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"]
+    }
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
+  "include": [
+    "./config/jest",
+    "./config/build",
+    "webpack.config.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./config/**/*",
+    "src/blocks/Landing/Section1/ui/Section1Title/Section1Title.tsx"
+  ],
+  "exclude": ["node_modules"]
+}

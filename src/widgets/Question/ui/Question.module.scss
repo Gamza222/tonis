@@ -1,0 +1,162 @@
+.Question {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-dark);
+  border-radius: 10px;
+  padding: 30px 30px;
+  width: 100%;
+  transition: all 0.1s linear;
+
+  @media (hover: hover) {
+    &:hover {
+      filter: brightness(1.3);
+    }
+  }
+
+  @media screen and (max-width: 1780px) {
+    padding: 25px 30px;
+  }
+  @media screen and (max-width: 1550px) {
+    padding: 22px 25px;
+  }
+  @media screen and (max-width: 1280px) {
+    padding: 18px 22px;
+  }
+
+  @media screen and (max-width: 650px) {
+    padding: 14px 15px;
+  }
+}
+
+.Button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  gap: 50px;
+
+  @media screen and (max-width: 500px) {
+    gap: 30px;
+  }
+  @media screen and (max-width: 400px) {
+    gap: 30px;
+  }
+  @media screen and (max-width: 350px) {
+    gap: 20px;
+  }
+  @media screen and (max-width: 400px) {
+    gap: 30px;
+  }
+
+  &__title {
+    font-size: var(--font-size-5);
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary-color);
+    text-align: start;
+    width: 100%;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 1px;
+      border-top: 1px dashed var(--color-gray);
+      width: 100%;
+      bottom: -30px;
+      opacity: 0;
+      transition: 0.2s linear;
+    }
+  }
+
+  &__square {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+    min-height: 55px;
+    padding: 10px;
+    background: var(--color-light);
+    border-radius: 5px;
+    position: relative;
+    transition: all 0.1s linear;
+
+    @media screen and (max-width: 1880px) {
+      width: 45px;
+      height: 45px;
+      min-width: 45px;
+      min-height: 45px;
+    }
+
+    @media screen and (max-width: 1280px) {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      min-height: 40px;
+    }
+    @media screen and (max-width: 780px) {
+      width: 35px;
+      height: 35px;
+      min-width: 35px;
+      min-height: 35px;
+    }
+
+    @media screen and (max-width: 650px) {
+      width: 34px;
+      height: 34px;
+      min-width: 34px;
+      min-height: 34px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 70%;
+      width: 2px;
+      background: var(--color-gray);
+      transition: all 0.1s linear;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 2px;
+      width: 70%;
+      background: var(--color-gray);
+      transition: all 0.1s linear;
+    }
+  }
+}
+
+.ButtonOpened {
+  .Button__title {
+    &::before {
+      opacity: 1;
+    }
+  }
+  .Button__square {
+    background: var(--color-gray);
+
+    &::before {
+      height: 0%;
+    }
+    &::after {
+      background: var(--primary-color);
+    }
+  }
+}
+
+.Content {
+  color: var(--color-light);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-regular);
+  text-align: start;
+  padding-top: 60px;
+}
+
+.contentClosing {
+  display: none;
+}

@@ -1,0 +1,90 @@
+.TitleBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 35px 0;
+  padding: 20px 15px;
+  gap: 120px;
+  position: relative;
+
+  @media screen and (max-width: 1880px) {
+    margin: 25px 0;
+    padding: 15px 13px;
+  }
+
+  @media screen and (max-width: 1350px) {
+    margin: 21px 0;
+    padding: 12px 13px;
+  }
+  @media screen and (max-width: 1280px) {
+    margin: 19px 0;
+    padding: 10px 10px;
+  }
+  @media screen and (max-width: 1000px) {
+    margin: 17px 0;
+    padding: 8px 10px;
+  }
+  @media screen and (max-width: 780px) {
+    margin: 17px 0;
+    padding: 6px 10px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+
+    > p:nth-child(2) {
+      width: var(--lesson-2);
+      min-width: var(--lesson-2);
+      display: flex;
+      text-align: center !important;
+    }
+
+    @media screen and (max-width: 1550px) {
+      gap: 50px;
+    }
+    @media screen and (max-width: 1350px) {
+      gap: 40px;
+    }
+    @media screen and (max-width: 1280px) {
+      gap: 35px;
+    }
+    @media screen and (max-width: 1000px) {
+      gap: 30px;
+    }
+    @media screen and (max-width: 780px) {
+      gap: 20px;
+    }
+  }
+  &__right {
+    @media screen and (max-width: 1200px) {
+      display: none;
+    }
+  }
+}
+.EyePic {
+  width: var(--lesson-1);
+  min-width: var(--lesson-1);
+  height: 24px;
+
+  @media screen and (max-width: 1550px) {
+    height: 19px;
+  }
+
+  @media screen and (max-width: 1350px) {
+    height: 17px;
+  }
+}
+
+.Text {
+  color: var(--color-gray);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-semibold);
+  text-align: start;
+}

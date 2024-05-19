@@ -1,0 +1,9 @@
+.ButtonType1 {
+  div {
+    padding: 5px 22px;
+
+    @media screen and (max-width: 1500px) {
+      padding: 5px 20px;
+    }
+  }
+}

@@ -1,0 +1,205 @@
+@import '../../../app/styles/mixins/mixins.scss';
+
+.ContentBox {
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    220.36deg,
+    rgba(45, 43, 57, 0.74) 6.182%,
+    rgba(40, 38, 51, 0.74) 96.765%
+  );
+  border-radius: 10px;
+  position: relative;
+  &::before {
+    @include BeforeGradient;
+    opacity: 0.3;
+    border-radius: 10px;
+  }
+}
+
+.Icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgb(55, 53, 63);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  margin-bottom: 10px;
+
+  &__pic {
+    width: 100%;
+    height: 100%;
+  }
+}
+.Title {
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+.Text {
+  font-size: var(--font-size-4);
+  font-weight: var(--font-weight-regular);
+  color: rgb(140, 138, 149);
+  margin-bottom: 15px;
+}
+
+.Button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  justify-content: flex-end;
+  font-size: var(--font-size-4);
+  font-weight: var(--font-weight-semibold);
+  color: var(--primary-color);
+
+  > svg {
+    width: 20px;
+  }
+}
+
+.blackOverlay {
+  position: fixed;
+  display: none;
+}
+
+.time {
+  > path {
+    fill: var(--color-gradient-yellow);
+  }
+}
+.zap {
+  > path {
+    fill: var(--color-gradient-pink);
+  }
+}
+
+.Modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 700px;
+  max-height: 600px;
+  min-width: 200px;
+  height: 70vh;
+  width: 85vw;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 10px;
+  animation: modalAnimation 0.2s linear forwards;
+  &::before {
+    @include BeforeGradient;
+    opacity: 0.3;
+    border-radius: 10px;
+  }
+
+  z-index: 23;
+
+  .Icon {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 20px;
+
+    &__pic {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @media screen and (max-width: 1500px) {
+    max-width: 500px;
+    max-height: 400px;
+  }
+}
+
+.blackOverlay {
+  cursor: pointer;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 300px;
+  min-height: 300px;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0.5;
+  overflow: auto;
+  display: flex;
+  background: var(--color-overlay);
+  border-radius: 10px;
+  z-index: 22;
+  animation: overlayAnimation 0.2s linear forwards;
+}
+
+.closingOverlay {
+  animation: overlayClosingAnimation 0.2s linear forwards;
+}
+
+.closingModal {
+  animation: modalClosingAnimation 0.2s linear forwards;
+}
+
+.Content {
+  overflow: auto;
+
+  background: linear-gradient(
+    220.36deg,
+    rgba(45, 43, 57, 1) 6.182%,
+    rgba(40, 38, 51, 1) 96.765%
+  );
+  padding: 30px 30px;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  z-index: var(--z-index-content);
+  @media screen and (max-width: 1550px) {
+    padding: 20px;
+  }
+}
+
+@keyframes overlayClosingAnimation {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes modalClosingAnimation {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+
+@keyframes overlayAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+@keyframes modalAnimation {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

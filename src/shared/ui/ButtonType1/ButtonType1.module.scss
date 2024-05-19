@@ -1,0 +1,59 @@
+@import '../../../app/styles/mixins/mixins.scss';
+
+.ButtonType1 {
+  color: var(--primary-color);
+  background: var(--color-overlay);
+  padding: 2px;
+  border-radius: var(--border-radius-button);
+  position: relative;
+  transition: all 0.05s linear;
+  cursor: pointer;
+
+  &:before {
+    @include BeforeGradient;
+    border-radius: calc(var(--border-radius-button) + 2px);
+  }
+  &__content {
+    position: relative;
+    z-index: var(--z-index-content);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 24px;
+    gap: 12px;
+    background: inherit;
+    border-radius: 5px;
+    position: relative;
+    height: 100%;
+    transition: var(--transition-button-type1);
+
+    &__text {
+      color: var(--primary-color);
+      font-size: var(--font-size-1);
+      font-weight: var(--font-weight-medium);
+      transition: var(--transition-button-type1);
+    }
+
+    &__Pic {
+    }
+
+    @media screen and (max-width: 1500px) {
+      padding: 12px 22px;
+      gap: 8px;
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background: transparent;
+
+      .ButtonType1__content__text {
+        color: var(--color-black);
+      }
+    }
+  }
+}
+
+.onNavbar {
+  background-color: var(--color-navbar-overlay);
+}

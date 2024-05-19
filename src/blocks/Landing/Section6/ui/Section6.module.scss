@@ -1,0 +1,6 @@
+@import '../../../../app/styles/mixins/mixins.scss';
+
+.Section6 {
+  @include Section;
+  margin-top: 50px;
+}

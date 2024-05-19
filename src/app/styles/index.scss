@@ -1,0 +1,58 @@
+@import './reset/reset.scss';
+@import './variables/global.scss';
+@import './mixins/mixins.scss';
+
+html {
+  background: #000;
+}
+body {
+  font-family: var(--font-family-main);
+  color: var(--primary-color);
+  min-width: 280px;
+  height: 100%;
+  min-height: 100vh;
+  max-width: 2000px;
+  margin: 0 auto;
+  background: var(--color-overlay);
+  overflow-x: hidden;
+}
+
+.app {
+  position: relative;
+  overflow-x: clip;
+  // padding-top: calc(27px - var(--padding-navbar-top));
+
+  @media screen and (max-width: 1200px) {
+    // padding-top: calc(50px - var(--padding-navbar-mobile-top));
+  }
+}
+.app-content {
+  display: none;
+}
+.app-content-opened {
+  display: block;
+  position: relative;
+}
+.Toastify__toast-body > div:last-child {
+  color: var(--color-gray4);
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--color-dark);
+  border-radius: 15px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

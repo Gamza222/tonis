@@ -1,0 +1,48 @@
+.LessonContentBox {
+  background: linear-gradient(
+    180deg,
+    var(--color-overlay),
+    var(--color-dark) 100%
+  );
+  padding: 40px 80px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: 1550px) {
+    padding: 40px 40px;
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 30px;
+  }
+  @media screen and (max-width: 330px) {
+    padding: 20px;
+  }
+
+  &__text {
+    font-size: var(--font-size-4);
+    color: var(--primary-color);
+    font-weight: var(--font-weight-regular);
+  }
+
+  &__textItem {
+    font-size: var(--font-size-4);
+    color: var(--primary-color);
+    font-weight: var(--font-weight-regular);
+    position: relative;
+  }
+}
+
+.TextWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.LessonContentBoxText {
+  @media screen and (max-width: 900px) {
+    background: var(--color-dark) 100%;
+  }
+}

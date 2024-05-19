@@ -1,0 +1,116 @@
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@mixin BeforeGradient {
+  content: '';
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(0);
+  width: calc(100%);
+  height: calc(100%);
+  background: linear-gradient(
+    90deg,
+    var(--color-gradient-yellow) 0%,
+    var(--color-gradient-pink) 50%,
+    var(--color-gradient-blue) 100%
+  );
+  border-radius: 8px;
+  background-size: 200%;
+  animation: animatedGradient 4s ease-in infinite;
+  z-index: var(--z-index-before);
+}
+@mixin AfterGradient {
+  content: '';
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(0);
+  width: calc(100%);
+  height: calc(100%);
+  background: linear-gradient(
+    90deg,
+    var(--color-gradient-yellow) 0%,
+    var(--color-gradient-pink) 50%,
+    var(--color-gradient-blue) 100%
+  );
+  filter: blur(5px);
+  border-radius: 8px;
+  background-size: 200%;
+  animation: animatedGradient 4s ease-in infinite;
+  border-radius: 8px;
+}
+
+@keyframes animatedGradient {
+  0% {
+    background-position: 0%;
+  }
+
+  50% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}
+
+@mixin Section {
+  &__content {
+    padding: 0 var(--padding-main-sides);
+  }
+}
+
+@mixin Title {
+  font-family: var(--font-family-subMain);
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-semibold);
+  color: var(--primary-color);
+  width: fit-content;
+  line-height: var(--font-size-3);
+}
+@mixin TitleGradient {
+  font-family: var(--font-family-subMain);
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-semibold);
+  background: linear-gradient(
+    90deg,
+    var(--color-gradient-yellow) 0%,
+    var(--color-gradient-pink) 50%,
+    var(--color-gradient-blue) 100%
+  );
+  background-clip: text;
+  width: fit-content;
+  line-height: var(--font-size-3);
+  color: transparent;
+}
+
+@mixin Blob {
+  content: '';
+  position: absolute;
+  background: radial-gradient(
+    circle,
+    rgba(255, 205, 112, 0.719) 36%,
+    rgba(200, 80, 192, 0.455) 21%
+  );
+  filter: blur(105px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  z-index: var(--z-index-before);
+  min-width: 300px;
+
+  @media screen and (max-width: 1150px) {
+    background: radial-gradient(
+      circle,
+      rgba(255, 205, 112, 0.719) 5%,
+      rgba(200, 80, 192, 0.455) 61%
+    );
+    filter: blur(120px);
+  }
+
+  @media screen and (max-width: 750px) {
+    display: none;
+  }
+}

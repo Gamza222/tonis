@@ -1,0 +1,26 @@
+.Participants {
+  display: flex;
+  align-items: flex-end;
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-regular);
+  color: var(--primary-color);
+  gap: 8px;
+  margin-top: 40px;
+
+  @media screen and (max-width: 1350px) {
+    margin-top: 30px;
+  }
+  @media screen and (max-width: 1350px) {
+    margin-top: 20px;
+  }
+
+  &__span {
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-2);
+    line-height: calc(var(--font-size-2) - 2px);
+  }
+
+  &__text {
+    line-height: var(--font-size-1);
+  }
+}

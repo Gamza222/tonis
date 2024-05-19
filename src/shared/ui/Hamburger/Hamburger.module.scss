@@ -1,0 +1,53 @@
+.Hamburger {
+  width: 28px;
+  height: 28px;
+}
+
+.HamburgerPic {
+  cursor: pointer;
+  fill: var(--primary-color);
+  stroke: var(--primary-color);
+  color: var(--primary-color);
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  transition: all 0.5s ease;
+  transform: scale(1.1);
+
+  @media screen and (max-width: 650px) {
+    transform: scale(0.9);
+  }
+
+  path {
+    transition: transform 0.5s ease;
+  }
+
+  g {
+    path:nth-child(1) {
+      transform: rotate(0deg);
+    }
+    path:nth-child(2) {
+      transition: opacity 0.2s ease;
+    }
+    path:nth-child(3) {
+      transform: rotate(0deg);
+    }
+  }
+}
+
+.HamburgerActive {
+  fill: var(--primary-color);
+  stroke: var(--primary-color);
+  color: var(--primary-color);
+  g {
+    path:nth-child(1) {
+      transform: translate(8.8px, 0.5px) rotate(45deg);
+    }
+    path:nth-child(2) {
+      opacity: 0;
+    }
+    path:nth-child(3) {
+      transform: translate(-11px, 9px) rotate(-45deg);
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@import '../../../../../../app/styles/mixins/mixins.scss';
+
+.Title {
+  @include Title;
+  display: flex;
+  flex-wrap: wrap;
+  white-space: pre-wrap;
+
+  &__gradient {
+    @include TitleGradient;
+  }
+}
+
+.Part {
+  display: flex;
+  flex-wrap: wrap;
+  white-space: pre-wrap;
+}
+.Titlewrapper {
+  overflow: hidden;
+}

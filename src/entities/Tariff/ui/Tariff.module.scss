@@ -1,0 +1,215 @@
+@import '../../../app/styles/mixins/mixins.scss';
+.Tariff {
+  padding: 2px;
+  position: relative;
+  height: 100%;
+
+  &::before {
+    @include BeforeGradient;
+    border-radius: 10px;
+  }
+  //   &::after {
+  //     @include AfterGradient;
+  //   }
+
+  &__content {
+    border-radius: 10px;
+    position: relative;
+    padding: 50px 40px;
+    z-index: var(--z-index-content);
+
+    background: linear-gradient(180deg, rgb(7, 7, 7), rgb(27, 27, 27) 100%);
+
+    @media screen and (max-width: 1780px) {
+      padding: 45px 40px;
+    }
+    @media screen and (max-width: 1350px) {
+      padding: 40px 35px;
+    }
+
+    @media screen and (max-width: 650px) {
+      padding: 30px 25px;
+    }
+  }
+
+  &__title {
+    @include TitleGradient;
+  }
+
+  &__places {
+    font-size: var(--font-size-4);
+    color: var(--color-gradient-yellow);
+    font-weight: var(--font-weight-regular);
+    margin-top: 10px;
+  }
+
+  &__text {
+    font-size: var(--font-size-4);
+    color: var(--color-light);
+    font-weight: var(--font-weight-regular);
+    margin-top: 10px;
+  }
+
+  &__price {
+    font-size: var(--font-size-3);
+    color: var(--primary-color);
+    font-weight: var(--font-weight-semibold);
+    margin-top: 40px;
+
+    @media screen and (max-width: 1780px) {
+      margin-top: 25px;
+    }
+    @media screen and (max-width: 1550px) {
+      margin-top: 20px;
+    }
+    @media screen and (max-width: 1280px) {
+      margin-top: 15px;
+    }
+    @media screen and (max-width: 1000px) {
+      margin-top: 10px;
+    }
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: var(--font-size-4);
+    color: var(--color-light);
+    font-weight: var(--font-weight-regular);
+    margin-top: 40px;
+
+    @media screen and (max-width: 1780px) {
+      margin-top: 25px;
+    }
+    @media screen and (max-width: 1550px) {
+      margin-top: 20px;
+    }
+    @media screen and (max-width: 1280px) {
+      margin-top: 15px;
+    }
+    @media screen and (max-width: 1000px) {
+      margin-top: 10px;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    display: block;
+    margin-top: 40px;
+
+    > button {
+      width: 100%;
+    }
+  }
+}
+
+.optionSelected {
+  .Tariff__options__option__pic {
+    &::before {
+      @include BeforeGradient;
+      border-radius: 50%;
+      display: block;
+    }
+    > svg {
+      z-index: var(--z-index-content);
+      position: relative;
+
+      > circle {
+        fill: transparent;
+      }
+    }
+  }
+}
+
+.TariffUsual {
+  &::before {
+    content: '';
+    position: absolute;
+    background: linear-gradient(
+      180deg,
+      var(--color-gray2) 0%,
+      var(--color-dark) 100%
+    );
+  }
+  &::after {
+    background: linear-gradient(
+      180deg,
+      var(--color-gray2) 0%,
+      var(--color-dark) 100%
+    );
+  }
+
+  .Tariff__options__option__pic {
+    &::before {
+      display: none;
+    }
+    > svg {
+      z-index: var(--z-index-content);
+      position: relative;
+
+      > circle {
+        fill: var(--primary-color);
+      }
+    }
+  }
+}
+
+.TariffPlus {
+  &::before {
+    content: '';
+    position: absolute;
+    background: linear-gradient(
+      180deg,
+      var(--color-gray2) 0%,
+      var(--color-dark) 100%
+    );
+  }
+  .Tariff__content {
+    background: linear-gradient(
+      180deg,
+      rgb(27, 27, 27) 0%,
+      var(--color-dark) 100%
+    );
+  }
+}
+
+.ButtonUsusal {
+  > button {
+    background: rgb(27, 27, 27);
+    border: 1px solid var(--color-gray2);
+    transition: all 0.1s linear;
+
+    &:hover {
+      // color: var(--primary-color);
+      background: var(--color-gray2);
+    }
+
+    &::before {
+      display: none;
+    }
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.ButtonPlus {
+  > button {
+    background: var(--color-dark);
+    border: 1px solid var(--color-gray2);
+    transition: all 0.1s linear;
+
+    &:hover {
+      // color: var(--primary-color);
+      background: var(--color-gray2);
+    }
+
+    &::before {
+      display: none;
+    }
+    &::after {
+      display: none;
+    }
+  }
+}

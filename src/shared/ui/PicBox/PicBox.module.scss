@@ -1,0 +1,46 @@
+@import '../../../app/styles/mixins/mixins.scss';
+
+.TimeBox {
+  padding: 1px;
+  width: 52px;
+  height: 52px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: 1550px) {
+    width: 42px;
+    height: 42px;
+  }
+  @media screen and (max-width: 550px) {
+    width: 36px;
+    height: 36px;
+  }
+
+  &__content {
+    background: var(--color-black);
+    padding: 8px;
+
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-index-content);
+    position: relative;
+    border-radius: 7px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    > svg {
+      height: inherit;
+    }
+  }
+
+  &::before {
+    @include BeforeGradient;
+    opacity: 0.5;
+  }
+
+  &__pic {
+  }
+}

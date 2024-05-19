@@ -1,0 +1,72 @@
+@import '../../../../app/styles/mixins/mixins.scss';
+
+.Option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  position: relative;
+
+  .Tariff__text {
+    margin-top: 0;
+  }
+
+  &__pic {
+    width: 17px;
+    min-width: 17px;
+    height: 17px;
+    min-height: 17px;
+    position: relative;
+    &::before {
+      @include BeforeGradient;
+      border-radius: 50%;
+      display: block;
+      background: var(--color-light);
+    }
+    &__img {
+      z-index: var(--z-index-content);
+      position: relative;
+
+      > circle {
+        fill: transparent;
+      }
+    }
+    &__img {
+      z-index: var(--z-index-content);
+      position: relative;
+
+      > circle {
+        fill: var(--primary-color);
+      }
+    }
+  }
+
+  &__text {
+    font-size: var(--font-size-4);
+    color: var(--color-light);
+    font-weight: var(--font-weight-regular);
+    text-decoration: line-through;
+  }
+}
+
+.optionSelected {
+  .Option__pic {
+    &::before {
+      @include BeforeGradient;
+      border-radius: 50%;
+      display: block;
+    }
+    &__img {
+      z-index: var(--z-index-content);
+      position: relative;
+
+      > circle {
+        fill: transparent;
+      }
+    }
+  }
+
+  .Option__text {
+    text-decoration: none;
+  }
+}

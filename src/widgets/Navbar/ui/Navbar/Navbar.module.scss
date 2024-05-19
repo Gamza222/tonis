@@ -1,0 +1,35 @@
+.Navbar {
+  padding: var(--padding-navbar-top) var(--padding-main-sides);
+  display: flex;
+  align-items: center;
+  background: var(--color-navbar-overlay);
+  justify-content: space-between;
+  transform-origin: top center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: var(--z-index-navbar);
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.Logo {
+  display: flex;
+  align-items: center;
+
+  &__pic {
+    height: var(--logo-height);
+  }
+}
+
+.Buttons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.NavbarLinks {
+}

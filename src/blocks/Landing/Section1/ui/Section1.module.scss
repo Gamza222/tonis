@@ -1,0 +1,119 @@
+@import '../../../../app/styles/mixins/mixins.scss';
+.Section1 {
+  position: relative;
+  @include Section;
+
+  &::before {
+    @include Blob;
+    width: 50%;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+
+    @media screen and (max-width: 1150px) {
+      width: 70%;
+    }
+    @media screen and (max-width: 750px) {
+      width: 70%;
+      transform: translate(35%, -30%);
+    }
+  }
+  &::after {
+    @include Blob;
+    width: 50%;
+    bottom: 0;
+    left: 0;
+    transform: translate(-50%, 50%);
+    width: 30%;
+
+    @media screen and (max-width: 1150px) {
+      width: 70%;
+    }
+    @media screen and (max-width: 750px) {
+      width: 70%;
+      transform: translate(-65%, 40%);
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: var(--z-index-content);
+    padding-top: 70px;
+
+    @media screen and (max-width: 1350px) {
+      padding-top: calc(
+        70px + var(--logo-height) + (2 * var(--padding-navbar-top))
+      );
+    }
+    @media screen and (max-width: 1000px) {
+      padding-top: calc(
+        55px + var(--logo-height) + (2 * var(--padding-navbar-top))
+      );
+    }
+    @media screen and (max-width: 780px) {
+      padding-top: calc(
+        40px + var(--logo-height) + (2 * var(--padding-navbar-top))
+      );
+    }
+    @media screen and (max-width: 750px) {
+      padding-top: calc(
+        40px + var(--logo-height) + (2 * var(--padding-navbar-top))
+      );
+    }
+    @media screen and (max-width: 500px) {
+      padding-top: calc(
+        35px + var(--logo-height) + (2 * var(--padding-navbar-top))
+      );
+    }
+    @media screen and (max-width: 400px) {
+      padding-top: calc(
+        35px + var(--logo-height) + (2 * var(--padding-navbar-top))
+      );
+    }
+    @media screen and (max-width: 350px) {
+      padding-top: calc(
+        30px + var(--logo-height) + (2 * var(--padding-navbar-top))
+      );
+    }
+    @media screen and (max-width: 300px) {
+      padding-top: calc(
+        20px + var(--logo-height) + (2 * var(--padding-navbar-top))
+      );
+    }
+  }
+}
+
+.Background {
+  position: absolute;
+  pointer-events: none;
+  z-index: var(--z-index-bg);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.canvasBgVisible {
+  animation: canvasBgAnimation 2s cubic-bezier(0.075, 0.082, 0.165, 1) forwards;
+}
+
+@keyframes canvasBgAnimation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes gradientTitle {
+  0% {
+    color: var(--primary-color);
+  }
+  100% {
+    color: transparent;
+  }
+}

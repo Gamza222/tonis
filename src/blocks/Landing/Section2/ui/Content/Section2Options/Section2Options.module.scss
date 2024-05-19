@@ -1,0 +1,38 @@
+.Section2Options {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @media screen and (max-width: 1550px) {
+    gap: 25px;
+  }
+  @media screen and (max-width: 1350px) {
+    gap: 22px;
+  }
+  @media screen and (max-width: 1100px) {
+    gap: 20px;
+  }
+  @media screen and (max-width: 1000px) {
+    gap: 18px;
+  }
+  @media screen and (max-width: 650px) {
+    gap: 15px;
+  }
+  @media screen and (max-width: 350px) {
+    gap: 10px;
+  }
+
+  &__item {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    &__pic {
+      width: calc(var(--font-size-1) + 4px);
+      height: calc(var(--font-size-1) + 4px);
+    }
+    &__text {
+      font-size: var(--font-size-1);
+      font-weight: var(--font-weight-regular);
+    }
+  }
+}

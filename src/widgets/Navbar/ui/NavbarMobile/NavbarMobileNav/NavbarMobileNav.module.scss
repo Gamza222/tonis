@@ -1,0 +1,76 @@
+.NavbarMobileNav {
+  position: fixed;
+  height: calc(
+    100vh - 2px - (var(--logo-height) + 2 * var(--padding-navbar-top))
+  );
+  overflow: auto;
+  top: calc(var(--logo-height) + 2 * var(--padding-navbar-top) + 2px);
+  background: var(--color-navbar-overlay);
+  width: 100%;
+  left: 0;
+  transform: translateX(100%);
+  animation: navbarShow 150ms cubic-bezier(0.5, 0, 0.5, 1) 0s 1 normal none
+    running;
+  animation-fill-mode: forwards;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding: 50px var(--padding-main-sides) 40px var(--padding-main-sides);
+}
+
+.NavbarMobileNavClosed {
+  animation: navbarHide 150ms cubic-bezier(0.5, 0, 0.5, 1) 0s 1 normal none
+    running;
+  animation-fill-mode: forwards;
+}
+
+@keyframes navbarShow {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes navbarHide {
+  0% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.Buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  position: relative;
+  &::before {
+    content: '';
+    height: 1px;
+    border-radius: 5px;
+    width: 100%;
+    position: absolute;
+    bottom: -40px;
+
+    border-radius: 8px;
+    background-size: 150%;
+  }
+}
+
+.Logo {
+  align-self: center;
+  align-items: center;
+  display: flex;
+  width: fit-content;
+  &__pic {
+    height: 25px;
+  }
+}

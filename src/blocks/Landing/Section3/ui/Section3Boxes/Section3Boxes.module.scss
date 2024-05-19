@@ -1,0 +1,37 @@
+.Section3Boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+
+  //   > div:nth-child(2) {
+  //     transform: translateY(60px);
+  //   }
+  //   > div:nth-child(4) {
+  //     transform: translateY(60px);
+  //   }
+
+  @media screen and (max-width: 1780px) {
+    gap: 30px;
+
+    // > div:nth-child(2) {
+    //   transform: translateY(46px);
+    // }
+    // > div:nth-child(4) {
+    //   transform: translateY(46px);
+    // }
+  }
+  //   @media screen and (max-width: 1100px) {
+  //     > div:nth-child(2) {
+  //       transform: translateY(0px);
+  //     }
+  //     > div:nth-child(4) {
+  //       transform: translateY(0px);
+  //     }
+  //   }
+  @media screen and (max-width: 750px) {
+    gap: 20px;
+  }
+  @media screen and (max-width: 550px) {
+    grid-template-columns: 1fr;
+  }
+}

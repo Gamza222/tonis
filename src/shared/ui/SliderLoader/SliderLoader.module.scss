@@ -1,0 +1,19 @@
+.SliderLoader {
+  width: 100%;
+  height: 2px;
+  background: var(--color-gray4);
+  position: relative;
+  border-radius: 5px;
+
+  &__bar {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 8px;
+    border-radius: 5px;
+    background: var(--color-gray4);
+    transform: translateY(-50%);
+    transition: width 0.1s linear;
+  }
+}
