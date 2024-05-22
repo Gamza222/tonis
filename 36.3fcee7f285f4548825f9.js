@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkTonito=self.webpackChunkTonito||[]).push([[36],{8036:(a,e,t)=>{t.r(e),t.d(e,{default:()=>o});var n=t(6540);const s={};var c=t(7101),i=t(4108);const o=function(a){a.className;var e=(0,n.useContext)(i.W);return e.initData,e.data,n.createElement("div",{className:(0,c.x)(s.LoginPage,{},[])},n.createElement("div",{className:s.LoginPage__data}))}}}]);
