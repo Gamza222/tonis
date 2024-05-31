@@ -1,0 +1,41 @@
+.LoginPageInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-color);
+  padding: 60px 20px 45px 20px;
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid var(--blue-light-color);
+  &__avatar {
+    border-radius: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    width: 120px;
+    &__img {
+      height: 120px;
+      width: 120px;
+      border-radius: 100%;
+      border: 2px solid var(--blue-light-color);
+    }
+  }
+
+  &__name {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    &__text {
+      color: var(--third-color);
+      font-size: var(--font-size-3);
+      font-weight: var(--font-weight-medium);
+      line-height: calc(var(--font-size-3) - 7px);
+    }
+  }
+}

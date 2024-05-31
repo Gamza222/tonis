@@ -1,0 +1,94 @@
+.SingleInputForm {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 500px;
+
+  &__input {
+    position: relative;
+    width: 100%;
+
+    &__buttons {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 50%;
+      gap: 7px;
+      right: 14px;
+      transform: translateY(-50%);
+      width: 4%;
+      justify-content: flex-end;
+    }
+
+    &__textField {
+      > label {
+        color: var(--gray-light-color);
+      }
+
+      > div {
+        > input {
+          width: calc(96% - 28px);
+        }
+
+        > fieldset {
+          border-color: var(--gray-light-color);
+        }
+
+        &:hover {
+          > fieldset {
+            border-color: var(--gray-light-color) !important;
+          }
+        }
+      }
+    }
+  }
+  &__submit {
+    display: flex;
+    &__pic {
+      font-size: 16px;
+
+      > path {
+        fill: var(--blue-dark-color);
+      }
+    }
+  }
+  &__cancel {
+    display: flex;
+    margin-top: 1px;
+
+    &__pic {
+      font-size: 13px;
+
+      > path {
+        fill: var(--blue-dark-color);
+      }
+    }
+  }
+}
+
+.ButtonsActive {
+  > svg {
+    > path {
+      fill: var(--gray-light-color) !important;
+    }
+  }
+}
+
+.ButtonsError {
+  > svg {
+    > path {
+      fill: var(--color-red) !important;
+    }
+  }
+}
+
+#search-clear {
+  display: none !important;
+}
+
+.Error {
+  color: var(--color-red);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-medium);
+}

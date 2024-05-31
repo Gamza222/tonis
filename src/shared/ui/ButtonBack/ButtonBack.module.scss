@@ -1,0 +1,15 @@
+.ButtonBack {
+  display: flex;
+  color: var(--blue-light-color);
+  align-items: center;
+  gap: 5px;
+  @media (hover: hover) {
+    &:hover {
+      color: var(--blue-dark-color);
+    }
+  }
+
+  &:active {
+    color: var(--blue-dark-color);
+  }
+}

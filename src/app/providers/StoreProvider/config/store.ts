@@ -1,20 +1,22 @@
-import { type ReducersMapObject, configureStore } from '@reduxjs/toolkit';
-import { type ThunkExtrArg, type StateSchema } from './StateSchema';
-import { type CombinedState, type Reducer } from 'redux';
-import { type NavigateOptions, type To } from 'react-router-dom';
-import { createReducerManager } from './ReducerManager';
-import { $api } from 'shared/api/api';
-import { RegisterReducer } from 'features/Register';
-import { VerifyUserReducer } from 'features/VerifyUser';
-import { LoginReducer } from 'features/Login';
-import { LoginVerifyCodeReducer } from 'features/LoginVerifyCode';
-import { PageLoaderReducer } from 'features/PageLoader';
-import { userReducer } from 'entities/User';
+import { type ReducersMapObject, configureStore } from "@reduxjs/toolkit";
+import { type ThunkExtrArg, type StateSchema } from "./StateSchema";
+import { type CombinedState, type Reducer } from "redux";
+import { type NavigateOptions, type To } from "react-router-dom";
+import { createReducerManager } from "./ReducerManager";
+import { $api } from "shared/api/api";
+import { RegisterReducer } from "features/Register";
+import { VerifyUserReducer } from "features/VerifyUser";
+import { LoginReducer } from "features/Login";
+import { LoginVerifyCodeReducer } from "features/LoginVerifyCode";
+import { PageLoaderReducer } from "features/PageLoader";
+import { userReducer } from "entities/User";
+import { initDataReducer } from "entities/initData";
+import { inviteCodeReducer } from "entities/InviteCode/slices/InviteCodeSlice";
 
 export function createReduxStore(
   initialState?: StateSchema,
   asyncReducers?: ReducersMapObject<StateSchema>,
-  navigate?: (to: To, options?: NavigateOptions) => void,
+  navigate?: (to: To, options?: NavigateOptions) => void
 ) {
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
@@ -25,7 +27,7 @@ export function createReduxStore(
     LoginVerifyCode: LoginVerifyCodeReducer,
     //auth
     User: userReducer,
-
+    InitData: initDataReducer,
     //feat
     PageLoader: PageLoaderReducer,
   };
@@ -39,7 +41,7 @@ export function createReduxStore(
     reducer: ReducerManager.reduce as Reducer<CombinedState<StateSchema>>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
-    middleware: getDefaultMiddleware =>
+    middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         thunk: {
           extraArgument: extraArg,
@@ -54,4 +56,4 @@ export function createReduxStore(
   return store;
 }
 
-export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];
+export type AppDispatch = ReturnType<typeof createReduxStore>["dispatch"];

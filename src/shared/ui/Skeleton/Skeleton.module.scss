@@ -1,0 +1,26 @@
+.SkeletonWrapper {
+  background-color: var(--color-skeleton) !important;
+  width: 100% !important;
+  transform: none !important;
+  //   height: 100% !important;
+
+  &::after {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-skeleton-after),
+      transparent
+    ) !important;
+    animation: Skeleton 1s linear infinite !important;
+  }
+}
+
+@keyframes Skeleton {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}

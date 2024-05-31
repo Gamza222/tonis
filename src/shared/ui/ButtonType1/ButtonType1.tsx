@@ -1,8 +1,10 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from "react";
 
-import cls from './ButtonType1.module.scss';
+import cls from "./ButtonType1.module.scss";
 
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from "shared/lib/classNames/classNames";
+import SkeletonWrapper from "../Skeleton/Skeleton";
+import Loader from "../Loader/Loader";
 
 interface ButtonType1Props
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -11,44 +13,46 @@ interface ButtonType1Props
   picClassName?: string;
   text?: string;
   children?: ReactNode;
-  navbar?: boolean;
-  video?: boolean;
+  isLoading?: boolean;
 }
 
 const ButtonType1 = (props: ButtonType1Props) => {
-  const { className, children, Pic, picClassName, text, navbar, video } = props;
-  const mods: Mods = {
-    [cls.onNavbar]: navbar,
+  const {
+    className,
+    children,
+    Pic,
+    picClassName,
+    text,
+    isLoading = false,
+    ...rest
+  } = props;
+  const ItemsMods: Mods = {
+    [cls.ItemsHide]: isLoading,
   };
   return (
     <button
-      {...props}
-      className={classNames(cls.ButtonType1, { ...mods }, [className])}
+      className={classNames(cls.ButtonType1, {}, [className])}
+      disabled={isLoading}
+      {...rest}
     >
       <div className={cls.ButtonType1__content}>
-        {children ? (
-          children
-        ) : (
-          <>
-            {Pic && !video && (
-              <Pic
-                className={classNames(cls.ButtonType1__content__pic, {}, [
-                  picClassName,
-                ])}
-              />
-            )}
-            {Pic && video && (
-              <div>
+        <div className={classNames(cls.Items, { ...ItemsMods }, [])}>
+          {children ? (
+            children
+          ) : (
+            <>
+              {Pic && (
                 <Pic
                   className={classNames(cls.ButtonType1__content__pic, {}, [
                     picClassName,
                   ])}
                 />
-              </div>
-            )}
-            <p className={cls.ButtonType1__content__text}>{text}</p>
-          </>
-        )}
+              )}
+              <p className={cls.ButtonType1__content__text}>{text}</p>
+            </>
+          )}
+        </div>
+        {isLoading && <Loader className={cls.Loader} />}
       </div>
     </button>
   );

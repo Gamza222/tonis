@@ -7,9 +7,9 @@
     "sourceMap": true,
     "jsx": "react",
     "module": "esnext",
-    "moduleResolution": "node",
-    "lib": ["dom", "esnext"],
-    "target": "es5",
+    "moduleResolution": "bundler",
+    "target": "es6",
+    "lib": ["es6", "dom"],
     "baseUrl": ".",
     "paths": {
       "*": ["./src/*"]

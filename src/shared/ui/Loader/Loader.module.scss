@@ -1,0 +1,20 @@
+.Loader {
+  &__content {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(#0000 10%, #fff);
+    -webkit-mask: radial-gradient(
+      farthest-side,
+      #0000 calc(100% - 25%),
+      #000 0
+    );
+    animation: spinner-zp9dbg 1s infinite linear;
+  }
+}
+
+@keyframes spinner-zp9dbg {
+  to {
+    transform: rotate(1turn);
+  }
+}

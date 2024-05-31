@@ -1,11 +1,11 @@
 @property --angle {
-  syntax: '<angle>';
+  syntax: "<angle>";
   initial-value: 0deg;
   inherits: false;
 }
 
 @mixin BeforeGradient {
-  content: '';
+  content: "";
   top: 50%;
   left: 50%;
   position: absolute;
@@ -24,7 +24,7 @@
   z-index: var(--z-index-before);
 }
 @mixin AfterGradient {
-  content: '';
+  content: "";
   top: 50%;
   left: 50%;
   position: absolute;
@@ -59,7 +59,8 @@
 
 @mixin Section {
   &__content {
-    padding: 0 var(--padding-main-sides);
+    padding: var(--padding-top) var(--padding-main-sides);
+    width: 100%;
   }
 }
 
@@ -88,7 +89,7 @@
 }
 
 @mixin Blob {
-  content: '';
+  content: "";
   position: absolute;
   background: radial-gradient(
     circle,
@@ -112,5 +113,32 @@
 
   @media screen and (max-width: 750px) {
     display: none;
+  }
+}
+
+@mixin ButtonType1Container {
+  width: 100% !important;
+
+  &:active {
+    transform: scale(0.99) !important;
+  }
+}
+@mixin ButtonType1Btn {
+  height: auto !important;
+  width: 100% !important;
+  gap: 8px !important;
+  background: var(--blue-light-color) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 5px !important;
+  padding: 12px 22px !important;
+  transition: all 0.1s linear !important;
+
+  @media (hover: hover) {
+    &:hover {
+      background: var(--blue-dark-color) !important;
+      transform: none !important;
+    }
   }
 }
