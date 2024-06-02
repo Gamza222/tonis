@@ -4,5 +4,7 @@
   "Code is not valid": "Code is not valid",
   "Connect Wallet": "Connect Wallet",
   "Disconnect wallet": "Disconnect wallet",
-  "Copy to clipboard": "Copy to clipboard"
+  "Copy to clipboard": "Copy to clipboard",
+  "Connection completed": "Connection completed",
+  "Connection error": "Connection error"
 }
