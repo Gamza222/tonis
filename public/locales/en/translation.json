@@ -8,5 +8,8 @@
   "Connection completed": "Connection completed",
   "Connection error": "Connection error",
   "Address copied to clipboard": "Address copied to clipboard",
-  "Error copying address": "Error copying address"
+  "Error copying address": "Error copying address",
+  "Trade": "Trade",
+  "Referals": "Referals",
+  "Profile": "Profile"
 }
