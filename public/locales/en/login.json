@@ -6,3 +6,19 @@
   "Wallet connected": "Wallet connected",
   "Welcome to Obelisk": "Welcome to Obelisk"
 }
+
+
+--tg-theme-button-color: #007aff
+--tg-theme-header-bg-color: #1c1c1c; 
+--tg-theme-subtitle-text-color: #ffffff;
+--tg-theme-text-color: #ffffff; 
+--tg-theme-button-text-color: #ffffff;
+--tg-theme-section-header-text-color: #e5e5e5; 
+--tg-color-scheme: dark;
+--tg-theme-bg-color: #282828;
+ --tg-theme-accent-text-color: #007aff; 
+--tg-theme-hint-color: #ffffff; 
+--tg-theme-link-color: #007aff; 
+--tg-theme-section-bg-color: #282828;
+--tg-theme-destructive-text-color: #ff453a; 
+--tg-theme-secondary-bg-color: #1c1c1c; 
