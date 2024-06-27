@@ -7,6 +7,7 @@ import { FaCheck } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import { TextField } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import Loader from "../Loader/Loader";
 
 interface SingleInputFormProps {
   className?: string;
@@ -16,31 +17,30 @@ interface SingleInputFormProps {
   autoFocus?: boolean;
   maxLength?: number;
   error?: string;
+  isLoading?: boolean;
   onClearInput: () => void;
   handleChange: (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
   onFocus: () => void;
   onBlur: () => void;
-  formId?: string;
-  onSubmit?: any;
 }
 
-const SingleInputForm = ({
-  className,
-  placeholder,
-  value,
-  active,
-  autoFocus,
-  maxLength,
-  error,
-  onClearInput,
-  handleChange,
-  onFocus,
-  onBlur,
-  formId,
-  onSubmit,
-}: SingleInputFormProps) => {
+const SingleInputForm = (props: SingleInputFormProps) => {
+  const {
+    className,
+    placeholder,
+    value,
+    active,
+    autoFocus,
+    maxLength,
+    error,
+    isLoading = false,
+    onClearInput,
+    handleChange,
+    onFocus,
+    onBlur,
+  } = props;
   const buttonsMods: Mods = {
     [cls.ButtonsActive]: !active,
     [cls.ButtonsError]: error,
@@ -48,11 +48,7 @@ const SingleInputForm = ({
 
   const { t } = useTranslation();
   return (
-    <form
-      className={classNames(cls.SingleInputForm, {}, [className])}
-      onSubmit={(e) => (formId && onSubmit ? onSubmit(e) : "")}
-      id={formId}
-    >
+    <div className={classNames(cls.SingleInputForm, {}, [className])}>
       <div className={cls.SingleInputForm__input}>
         <TextField
           // id="outlined-basic"
@@ -69,7 +65,7 @@ const SingleInputForm = ({
           value={value}
           autoFocus={autoFocus}
         />
-        {value && (
+        {value && !isLoading && (
           <div className={cls.SingleInputForm__input__buttons}>
             <button
               className={classNames(
@@ -83,9 +79,10 @@ const SingleInputForm = ({
             </button>
           </div>
         )}
+        {isLoading && <Loader className={cls.Loader} />}
       </div>
       {error && <p className={cls.Error}>{t(error)} !</p>}
-    </form>
+    </div>
   );
 };
 

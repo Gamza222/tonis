@@ -1,0 +1,35 @@
+.PriceBox {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px solid var(--tg-theme-subtitle-text-color);
+  font-size: var(--font-size-text);
+  padding: 6px 10px;
+  align-items: center;
+  width: fit-content;
+  border-radius: 4px;
+
+  &__title {
+    color: var(--tg-theme-subtitle-text-color);
+    font-size: var(--font-size-button);
+  }
+
+  &__price {
+    color: var(--tg-theme-text-color);
+    font-size: var(--font-size-pair);
+
+    &.green {
+      color: var(--color-green);
+    }
+
+    &.red {
+      color: var(--color-red);
+    }
+  }
+}
+
+.SkeletonWrapper {
+  height: 55px;
+  width: 85px !important;
+  border-radius: 4px;
+}

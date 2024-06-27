@@ -1,0 +1,33 @@
+@import "../../../app/styles/mixins/mixins.scss";
+
+.ConnectWalletButton {
+  @include ButtonType1Container;
+  > div {
+    > tc-root {
+      display: flex;
+      > button {
+        @include ButtonType1Btn;
+
+        > svg {
+          > path {
+            fill: #000;
+          }
+        }
+
+        > div {
+          font-family: var(--font-family-main);
+          color: var(--primary-color);
+          font-size: var(--font-size-2);
+          font-weight: var(--font-weight-medium);
+          transition: var(--transition-button-type1);
+        }
+      }
+    }
+  }
+}
+
+.ConnectedWalletButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

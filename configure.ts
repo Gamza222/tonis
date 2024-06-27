@@ -1,5 +1,9 @@
 require("dotenv").config();
 import { Markup, Telegraf } from "telegraf";
+import axios from "axios";
+import { createInterface } from "readline";
+import fs from "fs";
+import { promisify } from "util";
 
 const token = process.env.BOT_TOKEN;
 // const token = "5000501175:AAG4vdEnAIgX_KpPaBw-zlIelpU2FjZEvW8";

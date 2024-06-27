@@ -1,44 +1,100 @@
 import { routeConfig } from "shared/config/routeConfig/routeConfig";
 import React, { Suspense, useEffect } from "react";
-import { Link, Route, Routes, useNavigate } from "react-router-dom";
-// import { Loader } from 'widgets/Loader';
-// import { PageLoader } from 'widgets/PageLoader';
+
+import {
+  Link,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+import { useSelector } from "react-redux";
+import { getInviteCodeState } from "entities/InviteCode/selectors/getInviteCodeState";
+
+import ProtectedRoute from "./ProtectedRoute";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { NavbarActions } from "widgets/Navbar";
+import { PageLoader } from "features/PageLoader";
 
 const AppRouter = () => {
   const navigate = useNavigate();
-  const url = window.location.pathname;
+  const url = useLocation();
+  const isAuthenticated = useSelector(getInviteCodeState)?.success;
+  const dispatch = useAppDispatch();
+
+  const toggleNavbarState = () => {
+    console.log("path", url.pathname);
+    if (url.pathname === "/login") {
+      dispatch(NavbarActions.setNavbarPageClosed(true));
+    } else if (url.pathname !== "/login") {
+      dispatch(NavbarActions.setNavbarPageClosed(false));
+    }
+  };
 
   useEffect(() => {
-    if (
-      !Object.values(routeConfig).find(({ element, path }) => {
-        return `${path}` == url;
-      })
-    ) {
-      navigate("/");
+    const pathExist = Object.values(routeConfig).some(
+      ({ path }) => url.pathname === path
+    );
+
+    toggleNavbarState();
+    if (url.pathname === "/login" && isAuthenticated) {
+      navigate("/trade");
+      return;
     }
-    navigate("/login");
-  }, [url]);
+
+    if (!pathExist) {
+      navigate("/trade");
+      return;
+    }
+
+    // localStorage.setItem("path", url.pathname);
+  }, [isAuthenticated, url.pathname, navigate]);
+
+  useEffect(() => {
+    toggleNavbarState();
+  }, []);
 
   return (
-    <Routes>
-      {Object.values(routeConfig).map(({ element, path }) => (
-        <Route
-          key={path}
-          element={
-            <Suspense
-              fallback={
-                // <PageLoader />
-                // <Loader className='main-loader' />
-                <p>Loading...</p>
+    <>
+      <Routes>
+        {Object.values(routeConfig).map(({ element, path, protectedRoute }) => {
+          return !protectedRoute ? (
+            <Route
+              key={path}
+              element={
+                <Suspense
+                  fallback={
+                    // <PageLoader />
+                    // <Loader className='main-loader' />
+                    <PageLoader />
+                  }
+                >
+                  <div className="page-wrapper">{element}</div>
+                </Suspense>
               }
-            >
-              <div className="page-wrapper">{element}</div>
-            </Suspense>
-          }
-          path={path}
-        />
-      ))}
-    </Routes>
+              path={path}
+            />
+          ) : (
+            <Route path={path} key={path} element={<ProtectedRoute />}>
+              <Route
+                path={path}
+                element={
+                  <Suspense
+                    fallback={
+                      // <PageLoader />
+                      // <Loader className='main-loader' />
+                      <PageLoader />
+                    }
+                  >
+                    <div className="page-wrapper">{element}</div>
+                  </Suspense>
+                }
+              />
+            </Route>
+          );
+        })}
+      </Routes>
+    </>
   );
 };
 

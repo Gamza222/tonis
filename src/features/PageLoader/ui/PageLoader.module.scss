@@ -4,7 +4,7 @@
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background-color: #000;
+  background-color: var(--tg-theme-bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,74 +13,11 @@
   min-width: 280px;
 }
 
-.Logo {
-  position: fixed;
-  z-index: var(--z-index-page-logo);
-  top: 50%;
-  left: 50%;
-  width: 20%;
-
-  @media screen and (max-width: 1400px) {
-    width: 30%;
-  }
-  @media screen and (max-width: 750px) {
-    width: 40%;
-  }
-  @media screen and (max-width: 500px) {
-    width: 50%;
-  }
-  @media screen and (max-width: 400px) {
-    width: 60%;
-  }
-
-  &__pic {
-    path:nth-child(1),
-    path:nth-child(2),
-    path:nth-child(3) {
-      opacity: 0;
-      animation: animateOpacity 0.35s linear;
-      animation-fill-mode: forwards;
+.Spinner {
+  width: 100px;
+  > svg {
+    > path {
+      fill: var(--tg-theme-button-color);
     }
-
-    path:nth-child(6),
-    path:nth-child(7) {
-      opacity: 0;
-      animation: animateOpacity 0.35s linear;
-      animation-fill-mode: forwards;
-      animation-delay: 0.8s;
-    }
-    path:nth-child(4),
-    path:nth-child(5),
-    path:nth-child(8) {
-      opacity: 0;
-      animation: animateOpacity 0.35s linear;
-      animation-fill-mode: forwards;
-      animation-delay: 1.5s;
-    }
-
-    path:nth-child(4) {
-      opacity: 0;
-    }
-    path:nth-child(5) {
-      opacity: 0;
-    }
-    path:nth-child(6) {
-      opacity: 0;
-    }
-    path:nth-child(7) {
-      opacity: 0;
-    }
-    path:nth-child(8) {
-      opacity: 0;
-    }
-  }
-}
-
-@keyframes animateOpacity {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }

@@ -9,7 +9,7 @@ export interface sendInviteCodeThunkProps {
   code: string | undefined;
 }
 
-export interface sendInviteCodeRequestProps {
+export interface sendInviteCodeResultProps {
   result: number;
   ok: boolean;
 }
@@ -30,7 +30,7 @@ export const sendInviteCodeThunk =
         //     `https://api.telegram.org/bot${process.env.BOT_TOKEN}/getUserProfilePhotos`,
         //     { params: { user_id: data.user_id } }
         //   );
-        await wait(100);
+        await wait(1000);
         if (!data.code) {
           throw new Error("Fullfill input");
         }

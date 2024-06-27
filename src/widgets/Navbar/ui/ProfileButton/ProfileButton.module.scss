@@ -1,0 +1,55 @@
+@import "../../../../app/styles/mixins/mixins.scss";
+
+.ProfileButton {
+  @include NavbarButton;
+
+  &__text {
+  }
+
+  &__icon {
+    width: auto;
+    height: auto;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+  }
+}
+
+.Icon {
+  width: 26px !important;
+  height: 26px !important;
+  border: 2px solid transparent;
+  outline: 1px solid transparent;
+  transition: all 0.1s linear;
+
+  @media screen and (min-width: 300px) {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  > p {
+    background: transparent;
+    font-size: 15px;
+    @media screen and (min-width: 300px) {
+      font-size: 17px;
+    }
+  }
+
+  &.active {
+    outline-color: var(--tg-theme-button-color);
+
+    > p {
+      background-color: var(--tg-theme-button-color);
+    }
+  }
+
+  &.inactive {
+    // outline-color: var(--tg-theme-subtitle-text-color);
+
+    > p {
+      background-color: var(--tg-theme-subtitle-text-color);
+    }
+  }
+}

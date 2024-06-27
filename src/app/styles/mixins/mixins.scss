@@ -58,8 +58,11 @@
 }
 
 @mixin Section {
+  min-width: 280px;
   &__content {
-    padding: var(--padding-top) var(--padding-main-sides);
+    padding: var(--padding-top) var(--padding-main-sides) var(--padding-bottom)
+      var(--padding-main-sides);
+    margin-bottom: calc(var(--navbar-height) + 20px);
     width: 100%;
   }
 }
@@ -127,18 +130,85 @@
   height: auto !important;
   width: 100% !important;
   gap: 8px !important;
-  background: var(--blue-light-color) !important;
+  background: var(--tg-theme-button-color) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  border-radius: 5px !important;
-  padding: 12px 22px !important;
+  padding: 18px 30px;
   transition: all 0.1s linear !important;
+  transform: none !important;
 
-  @media (hover: hover) {
-    &:hover {
-      background: var(--blue-dark-color) !important;
-      transform: none !important;
+  // @media (hover: hover) {
+  //   &:hover {
+  //     background: var(--blue-dark-color) !important;
+  //     transform: none !important;
+  //   }
+  // }
+}
+
+@mixin ButtonType1Text {
+  color: var(--tg-theme-button-text-color);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-medium);
+  transition: var(--transition-button-type1);
+}
+
+@mixin NavbarButton {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  color: var(--accent-color);
+  &__text {
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-medium);
+    transition: all 0.1s linear;
+
+    &.active {
+      color: var(--tg-theme-button-color);
+    }
+
+    &.inactive {
+      color: var(--secondary-contrast-color);
+    }
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    transition: all 0.1s linear;
+    flex-grow: 1;
+
+    &.active {
+      color: var(--tg-theme-button-color);
+    }
+
+    &.inactive {
+      color: var(--tg-theme-subtitle-text-color);
+    }
+  }
+}
+
+@mixin Switcher {
+  width: 100%;
+  border: 1px solid var(--tg-theme-subtitle-text-color);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  gap: 5px;
+
+  &__button {
+    border-radius: 3px;
+    padding: 6px;
+    color: var(--tg-theme-text-color);
+    font-size: var(--font-size-button);
+    transition: 0.1s linear;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    &.active {
+      background-color: var(--tg-theme-button-color);
     }
   }
 }

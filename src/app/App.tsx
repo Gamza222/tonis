@@ -16,10 +16,18 @@ import { AppRouter } from "./providers/Router";
 import { ThemeProvider, useTheme } from "./providers/ThemeProvider";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { fetchUserPhotosThunk } from "entities/User/api/fetchUserPhotosThunk";
-import { InitDataContext } from "./providers/InitDataProvider/lib/initDataContext";
 import { initDataActions } from "entities/initData";
 import { getUserData } from "entities/User";
 import { fetchUserPhotoUrlThunk } from "entities/User/api/fetchUserPhotoUrlThunk";
+import { Bounce, ToastContainer } from "react-toastify";
+import { routeConfig } from "shared/config/routeConfig/routeConfig";
+import { Navbar } from "widgets/Navbar";
+import { useLocation } from "react-router-dom";
+import { PreventTelegramSwipeDownClosingIos } from "shared/lib/telegram/components/PreventScrolldownClosing";
+import {
+  platform,
+  TelegramPlatform,
+} from "shared/lib/telegram/functions/telegram-platform";
 
 interface AppProps {
   className?: string;
@@ -29,6 +37,7 @@ const App = ({ className }: AppProps) => {
   const dispatch = useAppDispatch();
   const { width, height } = useWindowDimensions();
   const { theme } = useTheme();
+  const url = useLocation().pathname;
 
   const appRef = useRef(null);
   const appRect = useElementRect(appRef);
@@ -45,6 +54,7 @@ const App = ({ className }: AppProps) => {
 
   const tgApp = window.Telegram.WebApp;
   tgApp.expand();
+  console.log(tgApp.isExpanded);
   const data = tgApp.initDataUnsafe as WebAppInitData;
   const userData = useSelector(getUserData);
 
@@ -70,7 +80,30 @@ const App = ({ className }: AppProps) => {
     <DimensionsContext.Provider value={dimensionsProps}>
       <ThemeProvider>
         <div className={classNames("app", {}, [theme])} ref={appRef}>
-          <AppRouter />
+          <ToastContainer
+            className={"toast-container"}
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            transition={Bounce}
+          ></ToastContainer>
+          {tgApp.isExpanded && (
+            <>
+              <PreventTelegramSwipeDownClosingIos>
+                <AppRouter />
+              </PreventTelegramSwipeDownClosingIos>
+              {/* {(!(platform instanceof TelegramPlatform) ||
+                (platform instanceof TelegramPlatform &&
+                  !platform.isIos())) && <Navbar />} */}
+            </>
+          )}
         </div>
       </ThemeProvider>
     </DimensionsContext.Provider>

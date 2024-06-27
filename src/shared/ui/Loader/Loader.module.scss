@@ -1,20 +1,21 @@
 .Loader {
-  &__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > svg {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    background: conic-gradient(#0000 10%, #fff);
-    -webkit-mask: radial-gradient(
-      farthest-side,
-      #0000 calc(100% - 25%),
-      #000 0
-    );
-    animation: spinner-zp9dbg 1s infinite linear;
+    animation: spinner 1s linear infinite;
   }
 }
 
-@keyframes spinner-zp9dbg {
-  to {
-    transform: rotate(1turn);
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }

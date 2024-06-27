@@ -1,35 +1,34 @@
 .Navbar {
-  padding: var(--padding-navbar-top) var(--padding-main-sides);
-  display: flex;
-  align-items: center;
-  background: var(--color-navbar-overlay);
-  justify-content: space-between;
-  transform-origin: top center;
-  position: sticky;
-  top: 0;
+  position: fixed;
+  background: var(--tg-theme-secondary-bg-color);
+  bottom: 0;
   left: 0;
-  z-index: var(--z-index-navbar);
+  width: 100vw;
+  border-top: 0.5px solid var(--tg-theme-subtitle-text-color);
+  min-width: 280px;
 
-  &__left {
+  &__content {
     display: flex;
-    align-items: center;
+    justify-content: space-around;
+    padding: 10px var(--padding-main-sides) var(--padding-bottom)
+      var(--padding-main-sides);
+    max-width: 700px;
+    margin: 0 auto;
+    gap: 10px;
+    // gap: 50px;
+
+    // @media screen and (min-width: 300px) {
+    //   gap: 60px;
+    // }
+    // @media screen and (min-width: 330px) {
+    //   gap: 70px;
+    // }
+    // @media screen and (min-width: 430px) {
+    //   gap: 90px;
+    // }
   }
 }
 
-.Logo {
-  display: flex;
-  align-items: center;
-
-  &__pic {
-    height: var(--logo-height);
-  }
-}
-
-.Buttons {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.NavbarLinks {
+.IosNavbar {
+  position: sticky;
 }

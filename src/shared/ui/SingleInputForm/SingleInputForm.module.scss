@@ -3,7 +3,6 @@
   flex-direction: column;
   gap: 8px;
   width: 100%;
-  max-width: 500px;
 
   &__input {
     position: relative;
@@ -17,27 +16,27 @@
       gap: 7px;
       right: 14px;
       transform: translateY(-50%);
-      width: 4%;
+      width: 8%;
       justify-content: flex-end;
     }
 
     &__textField {
       > label {
-        color: var(--gray-light-color);
+        color: var(--tg-theme-subtitle-text-color);
       }
 
       > div {
         > input {
-          width: calc(96% - 28px);
+          width: calc(92% - 28px);
         }
 
         > fieldset {
-          border-color: var(--gray-light-color);
+          border-color: var(--tg-theme-subtitle-text-color);
         }
 
         &:hover {
           > fieldset {
-            border-color: var(--gray-light-color) !important;
+            border-color: var(--tg-theme-subtitle-text-color) !important;
           }
         }
       }
@@ -49,19 +48,23 @@
       font-size: 16px;
 
       > path {
-        fill: var(--blue-dark-color);
+        fill: var(--tg-theme-subtitle-text-color);
       }
     }
   }
   &__cancel {
     display: flex;
     margin-top: 1px;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
 
     &__pic {
       font-size: 13px;
 
       > path {
-        fill: var(--blue-dark-color);
+        fill: var(--tg-theme-button-color);
       }
     }
   }
@@ -70,7 +73,7 @@
 .ButtonsActive {
   > svg {
     > path {
-      fill: var(--gray-light-color) !important;
+      fill: var(--tg-theme-subtitle-text-color) !important;
     }
   }
 }
@@ -91,4 +94,21 @@
   color: var(--color-red);
   font-size: var(--font-size-1);
   font-weight: var(--font-weight-medium);
+}
+
+.Loader {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+
+  svg {
+    path {
+      fill: var(--tg-theme-button-color);
+    }
+  }
 }

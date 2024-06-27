@@ -1,0 +1,9 @@
+@import "../../../../app/styles/mixins/mixins.scss";
+
+.TradePageSwitcher {
+  @include Switcher;
+
+  &__button {
+    width: 50%;
+  }
+}

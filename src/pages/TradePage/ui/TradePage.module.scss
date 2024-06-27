@@ -1,0 +1,24 @@
+@import "../../../app/styles/mixins/mixins.scss";
+
+.TradePage {
+  @include Section;
+  &__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 20px;
+  }
+}
+
+.PairEntity {
+  margin-top: 15px !important;
+  margin-bottom: 10px !important;
+}
+
+.TradePageSwitcher {
+}
+
+.Price {
+  font-size: var();
+}

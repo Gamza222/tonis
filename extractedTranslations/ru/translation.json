@@ -1,8 +1,22 @@
 {
+  "24h Change": "24h Change",
+  "24h High": "24h High",
+  "24h Low": "24h Low",
+  "4h High": "4h High",
+  "Address copied to clipboard": "Address copied to clipboard",
   "Back": "Back",
+  "Campaigns": "Campaigns",
   "Check code": "Check code",
+  "Connect Wallet": "Connect Wallet",
+  "Connect wallet": "Connect wallet",
+  "Connection completed": "Connection completed",
+  "Connection error": "Connection error",
+  "Error copying address": "Error copying address",
   "Fullfill input": "Fullfill input",
   "Input invite code": "Input invite code",
+  "Price": "Price",
+  "Profile": "Profile",
+  "Trade": "Trade",
   "Обновить страницу": "Обновить страницу",
   "Произошла непредвиденная ошибка": "Произошла непредвиденная ошибка"
 }

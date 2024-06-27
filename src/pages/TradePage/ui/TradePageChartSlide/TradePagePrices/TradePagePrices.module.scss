@@ -1,0 +1,14 @@
+.TradePagePrices {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 20px;
+
+  @media screen and (max-width: 540px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.PriceBox {
+  width: 100% !important;
+}

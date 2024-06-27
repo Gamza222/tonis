@@ -1,0 +1,17 @@
+@import "../../../../app/styles/mixins/mixins.scss";
+
+.TradeButton {
+  @include NavbarButton;
+
+  &__icon {
+    width: 27px;
+    height: auto;
+
+    > path {
+    }
+
+    @media screen and (min-width: 300px) {
+      width: 29px;
+    }
+  }
+}

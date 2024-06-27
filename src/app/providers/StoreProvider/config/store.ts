@@ -7,11 +7,12 @@ import { $api } from "shared/api/api";
 import { RegisterReducer } from "features/Register";
 import { VerifyUserReducer } from "features/VerifyUser";
 import { LoginReducer } from "features/Login";
-import { LoginVerifyCodeReducer } from "features/LoginVerifyCode";
 import { PageLoaderReducer } from "features/PageLoader";
 import { userReducer } from "entities/User";
 import { initDataReducer } from "entities/initData";
 import { inviteCodeReducer } from "entities/InviteCode/slices/InviteCodeSlice";
+import { PairEntityReducer } from "entities/PairEntity/slices/pairEntitiesSlice";
+import { NavbarReducer } from "widgets/Navbar";
 
 export function createReduxStore(
   initialState?: StateSchema,
@@ -24,10 +25,19 @@ export function createReduxStore(
     Register: RegisterReducer,
     VerifyUser: VerifyUserReducer,
     Login: LoginReducer,
-    LoginVerifyCode: LoginVerifyCodeReducer,
-    //auth
     User: userReducer,
     InitData: initDataReducer,
+    //auth
+
+    //entities
+    InviteCode: inviteCodeReducer,
+    PairEntities: PairEntityReducer,
+    //entities
+
+    //widgets
+    Navbar: NavbarReducer,
+    //widgets
+
     //feat
     PageLoader: PageLoaderReducer,
   };

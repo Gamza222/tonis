@@ -1,26 +1,18 @@
 //AvantGardeC font
-@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Reddit+Sans+Condensed:wght@200..900&display=swap");
-@font-face {
-  font-family: "AvantGardeC";
-  src: url("./fonts/AvantGardeC/AvantGardeC-Regular.otf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "AvantGardeC";
-  src: url("./fonts/AvantGardeC/AvantGardeC-Bold.otf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 :root {
-  --font-family-main: "Play", sans-serif;
+  --font-family-main: "Roboto", sans-serif;
   --font-family-subMain: "AvantGardeC", sans-serif;
 
   //fonts
-  --font-size-1: 14px;
+  --font-size-1: 11px;
   --font-size-2: 22px;
   --font-size-3: 30px;
+  --font-size-title: 45px;
+  --font-size-button: 17px;
+  --font-size-text: 15px;
+  --font-size-pair: 20px;
+  --font-size-time: 14px;
   --font-size-4: 19px;
   --font-size-5: 27px;
   --font-size-6: 40px;
@@ -36,19 +28,28 @@
   --font-weight-extrabold: 800;
 
   //Paddings
-  --padding-main-sides: 30px;
+  --padding-main-sides: 10px;
   --padding-top: 25px;
+  --padding-bottom: 25px;
   --margin-navbar-bottom: 80px;
 
   //indexes
+  --z-index-page-loader: 110;
   --z-index-max: 100;
   --z-index-before: 1;
   --z-index-content: 2;
   --z-index-navbar: 10;
 
   //colors
-  --primary-color: #333333;
-  --secondary-color: #000000b7;
+  --primary-color: #000000;
+  --secondary-color: #1c1c1c;
+  --text-color: rgb(255, 255, 255);
+  --border-color: #fff;
+
+  --accent-color-1: #7bff00;
+  --accent-color-2: #00f2b0;
+
+  --secondary-contrast-color: rgb(139, 139, 139);
   --third-color: #fff;
   --bg-color: #232323;
   --color-white: #ffffff;
@@ -59,10 +60,12 @@
   --color-skeleton: rgba(167, 165, 165, 0.6);
   --color-skeleton-after: rgba(255, 255, 255, 0.6);
   --color-green: rgb(5, 168, 5);
+  --color-light-green: rgba(0, 154, 0, 0.294);
   --color-red: rgb(255, 0, 0);
+  --color-light-red: rgba(255, 0, 0, 0.285);
 
   //heights
-  --logo-height: 48px;
+  --navbar-height: 80px;
 
   //widths
   --lesson-1: 60px;
@@ -81,100 +84,15 @@
   );
 }
 
-// //Poppins font
-// @font-face {
-//   font-family: 'Poppins';
-//   src: url('../fonts/Poppins/Poppins-Thin.ttf') format('truetype');
-//   font-weight: 100;
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: 'Poppins';
-//   src: url('../fonts/Poppins/Poppins-ThinItalic.ttf') format('truetype');
-//   font-weight: 100;
-//   font-style: italic;
-// }
-// @font-face {
-//   font-family: 'Poppins';
-//   src: url('../fonts/Poppins/Poppins-ExtraLight.ttf') format('truetype');
-//   font-weight: 200;
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: 'Poppins';
-//   src: url('../fonts/Poppins/Poppins-ExtraLightItalic.ttf') format('truetype');
-//   font-weight: 200;
-//   font-style: italic;
-// }
-// @font-face {
-//   font-family: 'Poppins';
-//   src: url('../fonts/Poppins/Poppins-Light.ttf') format('truetype');
-//   font-weight: 300;
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: 'Poppins';
-//   src: url('../fonts/Poppins/Poppins-LightItalic.ttf') format('truetype');
-//   font-weight: 300;
-//   font-style: italic;
-// }
-// @font-face {
-//   font-family: 'Poppins';
-//   src: url('../fonts/Poppins/Poppins-Regular.ttf') format('truetype');
-//   font-weight: 400;
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: 'Poppins';
-//   src: url('../fonts/Poppins/Poppins-Italic.ttf') format('truetype');
-//   font-weight: 400;
-//   font-style: italic;
-// }
-// @font-face {
-//   font-family: 'Poppins';
-//   src: url('../fonts/Poppins/Poppins-Medium.ttf') format('truetype');
-//   font-weight: 500;
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: 'Poppins';
-//   src: url('../fonts/Poppins/Poppins-MediumItalic.ttf') format('truetype');
-//   font-weight: 500;
-//   font-style: italic;
-// }
-// @font-face {
-//   font-family: 'Poppins';
-//   src: url('../fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
-//   font-weight: 600;
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: 'Poppins';
-//   src: url('../fonts/Poppins/Poppins-SemiBoldItalic.ttf') format('truetype');
-//   font-weight: 600;
-//   font-style: italic;
-// }
-// @font-face {
-//   font-family: 'Poppins';
-//   src: url('../fonts/Poppins/Poppins-Bold.ttf') format('truetype');
-//   font-weight: 700;
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: 'Poppins';
-//   src: url('../fonts/Poppins/Poppins-BoldItalic.ttf') format('truetype');
-//   font-weight: 700;
-//   font-style: italic;
-// }
-// @font-face {
-//   font-family: 'Poppins';
-//   src: url('../fonts/Poppins/Poppins-ExtraBold.ttf') format('truetype');
-//   font-weight: 800;
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: 'Poppins';
-//   src: url('../fonts/Poppins/Poppins-ExtraBoldItalic.ttf') format('truetype');
-//   font-weight: 800;
-//   font-style: italic;
-// }
+@media screen and (min-width: 300px) {
+  :root {
+    --font-size-1: 12px;
+  }
+}
+@media screen and (min-width: 320px) {
+  :root {
+    --font-size-1: 13px;
+
+    --padding-main-sides: 15px;
+  }
+}

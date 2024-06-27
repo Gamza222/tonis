@@ -1,0 +1,14 @@
+@import "../../../../app/styles/mixins/mixins.scss";
+
+.CampaignsButton {
+  @include NavbarButton;
+
+  &__icon {
+    width: 26px;
+    height: auto;
+
+    @media screen and (min-width: 300px) {
+      width: 28px;
+    }
+  }
+}

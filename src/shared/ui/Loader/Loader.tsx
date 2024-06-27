@@ -1,5 +1,8 @@
 import React from "react";
 import cls from "./Loader.module.scss";
+
+import Logo from "shared/assets/icons/Loader.svg";
+
 import { classNames } from "shared/lib/classNames/classNames";
 
 interface LoaderProps {
@@ -9,7 +12,7 @@ interface LoaderProps {
 const Loader = ({ className }: LoaderProps) => {
   return (
     <div className={classNames(cls.Loader, {}, [className])}>
-      <div className={classNames(cls.Loader__content, {}, [])}></div>
+      <Logo />
     </div>
   );
 };

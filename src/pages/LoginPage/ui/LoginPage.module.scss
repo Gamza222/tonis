@@ -2,70 +2,109 @@
 
 .LoginPage {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  transform: translateX(0px);
+  min-height: 100vh;
+  transform: translateY(0px);
   transition: all 0.2s linear;
   @include Section;
 
   &__content {
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 20px;
+    padding-top: 200px;
+    margin-bottom: 0;
+    gap: 65px;
+
+    @media screen and (max-height: 950px) {
+      padding-top: 160px;
+    }
+    @media screen and (max-height: 850px) {
+      padding-top: 120px;
+      gap: 50px;
+    }
+    @media screen and (max-height: 750px) {
+      padding-top: 80px;
+      gap: 45px;
+    }
+    @media screen and (max-height: 650px) {
+      padding-top: 50px;
+      gap: 40px;
+    }
+
+    &__logo {
+      height: 160px;
+      width: 160px;
+
+      display: flex;
+      justify-content: center;
+      &__pic {
+        width: 100%;
+        height: 100%;
+      }
+
+      @media screen and (max-height: 650px) {
+        height: 120px;
+        width: 120px;
+      }
+    }
+
+    &__title {
+      color: var(--tg-theme-text-color);
+      font-size: var(--font-size-title);
+      text-align: center;
+      max-width: 340px;
+      letter-spacing: 3px;
+      font-weight: 500;
+    }
 
     &__buttons {
       display: flex;
       flex-direction: column;
+      align-items: center;
       width: 100%;
-      margin-top: auto;
       gap: 20px;
+      margin-bottom: 20px;
 
-      &__btn {
-        width: 100%;
+      > button {
+        width: fit-content !important;
+      }
+    }
+
+    &__bottom {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: auto;
+
+      &__text {
+        font-size: var(--tg-theme-secondary-bg-color);
+        color: var(--tg-theme-subtitle-text-color);
+        font-size: var(--font-size-1);
+        font-weight: 400;
       }
 
-      &__connectBtn {
-        @include ButtonType1Container;
-        > div {
-          > tc-root {
-            display: flex;
-            > button {
-              @include ButtonType1Btn;
-
-              > svg {
-                > path {
-                  fill: #000;
-                }
-              }
-
-              > div {
-                font-family: var(--font-family-main);
-                color: var(--primary-color);
-                font-size: var(--font-size-2);
-                font-weight: var(--font-weight-medium);
-                transition: var(--transition-button-type1);
-              }
-            }
-          }
-        }
+      &__pic {
+        height: 14px;
+        width: 14px;
       }
     }
   }
 }
 
 .LoginPageSlide {
-  transform: translateX(-50px);
+  transform: translateY(-50px);
 }
 
 @keyframes slide {
   0% {
-    transform: translateX(0px);
+    transform: translateY(0px);
   }
   100% {
-    transform: translateX(-50px);
+    transform: translateY(-50px);
   }
+}
+
+.SkeletonButton {
+  border-radius: 28px !important;
 }

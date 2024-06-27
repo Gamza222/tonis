@@ -4,14 +4,14 @@ import { sendInviteCodeThunk } from "../api/sendInviteCodeThunk";
 
 const initialState: InviteCodeState = {
   data: undefined,
-  error: "",
+  error: undefined,
   isLoading: false,
   code: undefined,
   success: false,
 };
 
 export const inviteCodeSlice = createSlice({
-  name: "user",
+  name: "inviteCode",
   initialState,
   reducers: {
     setUserCode: (state, action: PayloadAction<string>) => {
@@ -40,6 +40,7 @@ export const inviteCodeSlice = createSlice({
       .addCase(sendInviteCodeThunk.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+        state.data = undefined;
       });
   },
 });

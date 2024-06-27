@@ -15,8 +15,6 @@ const SkeletonWrapper = memo((props: SkeletonWrapperProps) => {
   const [loaded, setLoaded] = useState<boolean>(false);
 
   useEffect(() => {
-    console.log(!loading);
-
     if (!loading) {
       setTimeout(() => {
         setLoaded(true);

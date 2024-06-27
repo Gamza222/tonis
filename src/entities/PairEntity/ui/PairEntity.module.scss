@@ -1,0 +1,104 @@
+.PairEntity {
+  font-size: var(--font-size-pair);
+  color: var(--third-color);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 10px;
+  min-width: 100px;
+  min-height: 40px;
+
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &__name {
+    line-height: calc(var(--font-size-button) - 5px);
+  }
+  &__price {
+    line-height: calc(var(--font-size-button) - 5px);
+    font-weight: var(--font-weight-normal);
+    &.PriceGreen {
+      color: var(--color-green);
+    }
+    &.PriceRed {
+      color: var(--color-red);
+    }
+  }
+
+  &__percent {
+    font-size: var(--font-size-text);
+    padding: 1px 5px;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    height: fit-content;
+
+    &.PercentRed {
+      background-color: var(--color-light-red);
+      color: var(--color-red);
+    }
+    &.PercentGreen {
+      background-color: var(--color-light-green);
+      color: var(--color-green);
+    }
+  }
+}
+
+.Input {
+  width: fit-content;
+  border-radius: 15px;
+  width: 100%;
+
+  > div {
+    > div {
+      padding-right: 50px;
+      padding-top: 5px !important;
+      padding-bottom: 5px !important;
+      > input {
+        z-index: 1;
+        position: relative;
+        width: fit-content !important;
+        text-transform: uppercase;
+        padding: 2px 0 !important;
+        font-size: var(--font-size-pair);
+
+        color: var(--tg-theme-text-color) !important;
+        font-weight: var(--font-weight-bold) !important;
+      }
+
+      > div:nth-child(2) {
+        z-index: 1;
+
+        > button {
+          svg {
+            > path {
+              fill: var(--tg-theme-text-color);
+            }
+          }
+        }
+
+        > button:nth-child(1) {
+          padding: 0;
+          padding: 7px 0;
+          padding-left: 7px;
+          > svg {
+            height: 15px;
+            width: 15px;
+          }
+        }
+      }
+      > fieldset {
+        border-color: var(--tg-theme-subtitle-text-color) !important;
+        z-index: 0;
+        background: var(--tg-theme-secondary-bg-color);
+      }
+    }
+  }
+}
+
+//border: 2px solid var(--accent-color-1);
+
+.SkeletonWrapper {
+  height: 40px !important;
+  width: 100%;
+}
