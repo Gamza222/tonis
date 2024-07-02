@@ -5,6 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "start": "webpack serve --env port=3002 --env mode=development storybook",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
